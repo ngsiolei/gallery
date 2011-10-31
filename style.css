@@ -1,0 +1,140 @@
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+}
+#gallery {
+  width: 100%;
+  height: 100%;        /* Image height + 100px */
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+#gallery li {
+  width: 100%;
+  height: 100%;
+  display: block;
+  list-style: none;
+  z-index: -30;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background-color: #111;
+}
+#gallery img {
+  position: relative;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+  display: none;
+  border: none;
+}
+#gallery li.prevslide {
+  z-index: -20;
+}
+#gallery li.activeslide {
+  z-index: -10;
+}
+#gallery li.image-loading { background:#111 url(../img/progress.gif) no-repeat center center; width:100%; height:100%; }
+#gallery li.image-loading img {
+  visibility:hidden;
+}
+#gallery li.prevslide img, #gallery li.activeslide img {
+  display: inline;
+}
+a#prevLink, a#nextLink {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 15%;
+  color: #ffc;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  font-size: 60px;
+  line-height: 800px;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+}
+a#prevLink {
+  left: 0;
+}
+a#nextLink {
+  right: 0;
+}
+#controlWrapper {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid #222;
+  background-color: #111;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+}
+#caption {
+  position: relative;
+  float: left; 
+  width: 50%;
+  color: #ffc;
+  font-size: 20px;
+  line-height: 50px;
+  padding-left: 20px;
+  overflow: hidden;
+}
+#control {
+  position: relative;
+  float: right; 
+  color: #ffc;
+  text-align: center;
+  width: 320px;
+}
+#control a {
+  float: left;
+  display: block;
+  width: 100px;
+  background: transparent;
+  font-size: 30px;
+  line-height: 50px;
+  color: #ffc;
+  cursor: pointer;
+  text-align: center;
+}
+#control a:active {
+  background-color: #444;
+}
+#control #prev {
+  border-right: 1px dotted #222;
+  border-left: 1px dotted #222;
+}
+#control #next {
+  border-right: 1px dotted #222;
+  border-left: 1px dotted #222;
+}

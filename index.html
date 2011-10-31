@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" type="text/css" href="./style.css">
+<script type="text/javascript" src="./jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="./gallery.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var images = []; 
+for (var i = 1; i <= 3; i++) {
+  images.push({'src': './slides/'+ i +'.jpg', 'alt': '相片' + i});
+}
+jQuery(function ($) {
+  $.gallery({'images': images});
+});
+</script>
+</body>
+</html>
