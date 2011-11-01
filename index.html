@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<link rel="stylesheet" type="text/css" href="./style.css">
-<script type="text/javascript" src="./jquery-1.6.4.min.js"></script>
-<script type="text/javascript" src="./gallery.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
-<script type="text/javascript">
-var images = []; 
-for (var i = 1; i <= 3; i++) {
-  images.push({'src': './slides/'+ i +'.jpg', 'alt': '相片' + i});
-}
-jQuery(function ($) {
-  $.gallery({'images': images});
-});
-</script>
+<div id="wrapper">
+<a href="./slideset1.html">
+<img src="./slides/1_600x200.jpg" />
+</a>
+<br />
+<br />
+<a href="./slideset2.html">
+<img src="./slides/3_600x300.jpg" />
+</a>
+</div>
 </body>
 </html>

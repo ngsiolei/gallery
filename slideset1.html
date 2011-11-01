@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script type="text/javascript" src="./js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="./js/gallery.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var images = [];
+images.push({'src': './slides/1.jpg', 'alt': '松山'});
+images.push({'src': './slides/2.jpg', 'alt': '大三巴斜巷'});
+
+jQuery(function ($) {
+  $.gallery({
+    'title': '澳門黃昏 2010-06', // title of this slideshow, shown in buttom bar
+    'homeUrl': './index.html', // URL of home page
+    'autoplay': 1, // 1 - automatically play slideshow, otherwise do nothing
+    'slideInterval': 5000, // in ms, duration between slide transitions
+    'images': images
+  });
+});
+</script>
+</body>
+</html>

@@ -2,15 +2,16 @@
 
   $(document).ready(function() {
     $('body').append('<ul id="gallery"></ul>');
-    $('body').append('<a id="prevLink">&lt;</a>');
-    $('body').append('<a id="nextLink">&gt;</a>');
+    $('body').append('<div id="prevLink"><a href="#">&nbsp;</a></div>');
+    $('body').append('<div id="nextLink"><a href="#">&nbsp;</a></div>');
     $('body').append('<div id="controlWrapper"></div>');
+    $('#controlWrapper').append('<div id="home"></div>');
     $('#controlWrapper').append('<div id="caption"></div>');
     $('#controlWrapper').append('<div id="control"></div>');
-    $('#control').append('<a id="prev">&lt;</a>');
-    $('#control').append('<a id="play">&#9654;</a>');
-    $('#control').append('<a id="pause" style="display: none;">&#9646;&#9646;</a>');
-    $('#control').append('<a id="next">&gt;</a>');
+    $('#control').append('<div id="prev"><a href="#">&nbsp;</a></div>');
+    $('#control').append('<div id="play"><a href="#">&nbsp;</a></div>');
+    $('#control').append('<div id="pause" style="display: none;"><a href="#">&nbsp;</a></div>');
+    $('#control').append('<div id="next"><a href="#">&nbsp;</div>');
 	});
 
   $.gallery = function (options) {
@@ -18,7 +19,10 @@
     self.currentIndex = 0;
     self.intval = '';
     self.images = options.images;
-    self.slideNum = options.slideNum || 5;
+    self.title = options['title'] || '';
+    self.homeUrl = options.homeUrl || './index.html';
+    self.autoplay = options.autoplay || 0;
+    self.slideInterval = options.slideInterval || 5000;
     self.target = $('#gallery');
     self.sh = $(window).height();
     self.sw = $(window).width();
@@ -131,13 +135,17 @@
       });
     };
     self.updateCaption = function (imageIndex) {
-      $('#caption').html(self.currentIndex + 1 + '/' + self.images.length + ': ' + self.images[imageIndex]['alt']);
+      var html = '';
+      html += (self.title) ? self.title + '&nbsp;&middot;&nbsp;' : '';
+      html += self.currentIndex + 1 + '/' + self.images.length + '&nbsp;&middot;&nbsp;';
+      html += self.images[imageIndex]['alt']; 
+      $('#caption').html(html);
     };
     self.play = function () {
       if (self.intval === '') {
         self.intval = setInterval(function () {
           self.next();
-        }, 5000);
+        }, self.slideInterval);
         $('#play').css('display', 'none');
         $('#pause').css('display', 'block');
         $('#prevLink').css('display', 'none');
@@ -173,27 +181,28 @@
           }
         }
       });
-      $('#prevLink').click(function () {
+      $('#home').append('<a href="' + self.homeUrl + '">&nbsp;</a>');
+      $('#prevLink a').click(function () {
         self.prev();
         return false;
       });
-      $('#prev').click(function () {
+      $('#prev a').click(function () {
         self.prev();
         return false;
       });
-      $('#nextLink').click(function () {
+      $('#nextLink a').click(function () {
         self.next();
         return false;
       });
-      $('#next').click(function () {
+      $('#next a').click(function () {
         self.next();
         return false;
       });
-      $('#play').click(function () {
+      $('#play a').click(function () {
         self.play();
         return false;
       });
-      $('#pause').click(function () {
+      $('#pause a').click(function () {
         self.pause();
         return false;
       });
@@ -202,6 +211,9 @@
         self.resize();
       });
       self.updateCaption(self.currentIndex);
+      if (self.autoplay === 1) {
+        self.play();
+      }
     };
     self.init();
   };
