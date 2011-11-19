@@ -132,6 +132,7 @@
           }
         }
         $(this).css('left', (possibleWidth - $(this).width()) / 2);
+        $(this).css('top', (possibleHeight - $(this).height()) / 2);
       });
     };
     self.updateCaption = function (imageIndex) {
