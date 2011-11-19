@@ -23,12 +23,28 @@ img {
   border: none;
 }
 #wrapper {
-  width: 80%;
-  margin: 150px auto;
-  text-align: center;
+  width: 1200px;
+  margin: 50px auto;
+  color: #ccc;
 }
 #wrapper img {
  border: 4px solid #ccc;
+}
+.leftBox {
+  width: 590px;
+  float: left;
+  text-align: right;
+}
+.rightBox {
+  width: 590px;
+  float: right;
+}
+.leftBox, .rightBox {
+  overflow: hidden;
+}
+.clear {
+  clear: both;
+  height: 0;
 }
 #gallery {
   width: 100%;
