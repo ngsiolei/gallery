@@ -78,20 +78,21 @@ img {
   color: #ffc;
   text-align: center;
   font-size: 60px;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
-  -webkit-transition: opacity .9s;
-  -moz-transition: opacity .9s;
-  -o-transition: opacity .9s;
-  transition: opacity .9s;
+  /* change opacity of prev, next icons*/
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -webkit-transition: opacity .8s;
+  -moz-transition: opacity .8s;
+  -o-transition: opacity .8s;
+  transition: opacity .8s;
 }
 #prevLink {
   left: 0;
-  background: url(../img/prev_32x32.png) no-repeat center center;
+  background: url(../img/prev_46x46_1.png) no-repeat center center;
 }
 #nextLink {
   right: 0;
-  background: url(../img/next_32x32.png) no-repeat center center;
+  background: url(../img/next_46x46_1.png) no-repeat center center;
 }
 #prevLink a, #nextLink a {
   display: block;
