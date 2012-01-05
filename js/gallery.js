@@ -12,7 +12,7 @@
     $('#control').append('<div id="play"><a href="#">&nbsp;</a></div>');
     $('#control').append('<div id="pause" style="display: none;"><a href="#">&nbsp;</a></div>');
     $('#control').append('<div id="next"><a href="#">&nbsp;</div>');
-	});
+  });
 
   $.gallery = function (options) {
     var self = this;
@@ -30,16 +30,16 @@
     var slideSet = '';
 
     for (var i = 0; i < self.images.length; i++) {
-			slideSet += '<li class="slide-' + i + '"></li>';
+      slideSet += '<li class="slide-' + i + '"></li>';
     }
     self.target.append(slideSet);
 
     self.addImage = function (imageIndex, cb) {
       var image =  self.images[imageIndex];
-      var img = $('<img src="'+ image['src'] + '" />');
+      var img = $('<img src="' + image['src'] + '" />');
       $('.slide-' + imageIndex).append(img);
       img.load(function () {
-			  $(this).data('origWidth', $(this).width());
+        $(this).data('origWidth', $(this).width());
         $(this).data('origHeight', $(this).height());
         if (cb) cb();
         self.loading = false;
@@ -131,8 +131,8 @@
             }
           }
         }
-        $(this).css('left', (possibleWidth - $(this).width()) / 2);
-        $(this).css('top', (possibleHeight - $(this).height()) / 2);
+        img.css('left', (possibleWidth - img.width()) / 2);
+        img.css('top', (possibleHeight - img.height()) / 2);
       });
     };
     self.updateCaption = function (imageIndex) {
